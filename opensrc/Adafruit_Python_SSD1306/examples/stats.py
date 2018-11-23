@@ -97,6 +97,9 @@ x = 0
 
 # Load default font.
 font = ImageFont.load_default()
+#font = {'family' : 'normal',
+ #       'weight' : 'bold',
+ #       'size'   : 22}
 
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
@@ -117,14 +120,20 @@ while True:
    # cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
    # Disk = subprocess.check_output(cmd, shell = True )
 
+   #Reading from the file ntrackers.txt
+    trackerCount = open("/var/www/html/conf/ntrackers.txt",'r')
+    pokus = trackerCount.read()
     # Write two lines of text.
+    
+    # print pokus
 
     draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
-    draw.text((x, top+8),    "Your DnTrack is ready!", font=font, fill=255)
-   # draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
-   # draw.text((x, top+25),    str(Disk),  font=font, fill=255)
+    draw.text((x, top+8),     "Your DnTrack is ready!", font=font, fill=255)
+    draw.text((x, top+16),    "Blocked trackers: " + pokus ,  font=font, fill=255)
+    # draw.text((x, top+25),     pokus,  font=font, fill=255)
 
     # Display image.
     disp.image(image)
     disp.display()
     time.sleep(.1)
+
