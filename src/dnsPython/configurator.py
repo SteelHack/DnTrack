@@ -1,3 +1,16 @@
+#!/usr/bin/python3
+# /etc/init.d/pyDnCo.py
+### BEGIN INIT INFO
+# Provides:		pyDnCo.py
+# Required-Start:	$remote_fs $syslog
+# Required-Stop:	$remote_fs $syslog
+# Defaul-Start:		2 3 4 5
+# Default-Stop:		0 1 6
+# Short-Description:	DnTrack main controller
+# Description:		DnTracl main controller
+### END INIT INFO
+
+
 #Ja vim ze stredniky tu nepatri, ale mi to dela dobre :D
 
 import os
@@ -18,7 +31,7 @@ while True:
 	curruChan = os.stat("/var/www/html/conf/userDNS.txt")[ST_MTIME];
 	curraChan = os.stat("/var/www/html/conf/autoDNS.txt")[ST_MTIME];
 	if curruChan != prevuChan or curraChan != prevaChan:
-		print "Some configuration changed!";
+		print ("Some configuration changed!");
 		userDNSs = open("/var/www/html/conf/userDNS.txt", 'r');
 		autoDNSs = open("/var/www/html/conf/autoDNS.txt", 'r');
 		hostsConf = open("/var/www/html/conf/dnsmasq.hosts", 'w');
@@ -32,6 +45,6 @@ while True:
 		os.system("sudo service dnsmasq restart");
 		prevuChan = curruChan;
 		prevaChan = curraChan;
-	if seCounter == 60:
+	if seCounter == 43000:
 		os.system("./parse.py");
 	time.sleep(1);
