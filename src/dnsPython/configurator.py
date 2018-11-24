@@ -3,16 +3,18 @@
 import os
 import time
 from stat import * # ST_SIZE etc
-import shutil
+from shutil import copyfile
 
 prevuChan = 0;
 prevaChan = 0;
 
 seCounter = 0;
 
+os.system("./parse.py");
+
 while True:
 	#print "DNSmasq conf checker script initiated...";
-	seCounter++;
+	seCounter += 1;
 	curruChan = os.stat("/var/www/html/conf/userDNS.txt")[ST_MTIME];
 	curraChan = os.stat("/var/www/html/conf/autoDNS.txt")[ST_MTIME];
 	if curruChan != prevuChan or curraChan != prevaChan:
@@ -26,10 +28,10 @@ while True:
 		userDNSs.close();
 		autoDNSs.close();
 		hostsConf.close();
-		copyfile("/var/www/html/dnsmasq.hosts", "/etc/dnsmasq.hosts");
+		copyfile("/var/www/html/conf/dnsmasq.hosts", "/etc/dnsmasq.hosts");
 		os.system("sudo service dnsmasq restart");
 		prevuChan = curruChan;
 		prevaChan = curraChan;
 	if seCounter == 60:
-		os.system("parse.py");
+		os.system("./parse.py");
 	time.sleep(1);

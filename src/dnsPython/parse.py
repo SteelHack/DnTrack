@@ -5,7 +5,7 @@ import sys
 import re
 import urllib.request
 
-file = open("autoDNS.txt", "w")
+file = open("/var/www/html/conf/autoDNS.txt", "w")
 filter = urllib.request.urlopen("https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt")
     
 for line in filter:
