@@ -1,14 +1,4 @@
-#!/usr/bin/python3
-# /etc/init.d/pyDnCo.py
-### BEGIN INIT INFO
-# Provides:		pyDnCo.py
-# Required-Start:	$remote_fs $syslog
-# Required-Stop:	$remote_fs $syslog
-# Defaul-Start:		2 3 4 5
-# Default-Stop:		0 1 6
-# Short-Description:	DnTrack main controller
-# Description:		DnTracl main controller
-### END INIT INFO
+# !/usr/bin/python3
 
 
 #Ja vim ze stredniky tu nepatri, ale mi to dela dobre :D
