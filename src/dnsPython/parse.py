@@ -4,10 +4,14 @@
 import sys
 import re
 import urllib.request
+import subprocess
 
 file = open("/var/www/html/conf/autoDNS.txt", "w")
 filter = urllib.request.urlopen("https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt")
-    
+
+cmd = "hostname -I | cut -d\' \' -f1"
+IP = subprocess.check_output(cmd, shell = True)
+
 for line in filter:
     line = line.decode("utf-8")
     if not line.startswith("!"): # ignore comments
@@ -16,5 +20,5 @@ for line in filter:
         if not m == None:
             m = re.match("^\|\|(.+?)\^(\$[a-zA-Z0-9\-]+?)?$", line)
             if not m == None:
-                file.write("127.0.0.1 " + m.group(1) + "\n")
+                file.write(IP.decode("utf-8").rstrip() + " " + m.group(1) + "\n")
 
