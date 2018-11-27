@@ -1,3 +1,4 @@
+<a href="addUser.html"> Add custom entry</a>
 <h1>Summary</h1>
 <table>
 <tr>
