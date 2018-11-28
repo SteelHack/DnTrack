@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DnTrack configuration</title>
 </head>
-<body>
-    <h1>Add a custom DNS entry</h1>
+<body style="background-color: #000000; color: white;">
+    <h1 style="color: #009900;">Add a custom DNS entry</h1>
     <form action="addedUserDNS.php" method="post">
         IP address:<br>
         <input type="text" required pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" name="ip"><br>
         
         Hostname:<br>
         <input type="text" required name="hostname"><br>
-        
-        <input type="submit">
+        <br>
+        <input type="submit" value="Save">
     </form>
 </body>
 </html>

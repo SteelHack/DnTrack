@@ -1,6 +1,10 @@
-<a href="addUser.html"> Add custom entry</a>
-<h1>Summary</h1>
-<table>
+<head><title>DnTrack hosts</title></head>
+<body style="background-color: black;">
+<a href="addUserDNS.html" style="text-decoration: none; color: blue; font-weight: bold;"> Add custom entry</a>
+&nbsp&nbsp&nbsp&nbsp
+<a href="#" style="text-decoration: none; color: blue; font-weight: bold;">Show graphs</a>
+<h1 style="color: #009900">Summary</h1>
+<table style="color: #FFFFFF">
 <tr>
 <th>IP address</th>
 <th>Hostname</th>
@@ -30,3 +34,4 @@ foreach($rows as $row => $data)
 }
 ?>
 </table>
+</body>
